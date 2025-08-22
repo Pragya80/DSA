@@ -1,0 +1,22 @@
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        node->val=node->next->val; 
+        node->next=node->next->next;
+    }
+};
+
+Dry Run
+
+Example:
+head = [4, 5, 1, 9], node = 5
+Step 1: Copy node->next->val (which is 1) into node->val.
+head = [4, 1, 1, 9]
+
+Step 2: Skip the next node (node->next = node->next->next).
+head = [4, 1, 9]
+👉 Now the list looks like node 5 was deleted, even though technically 1 got copied and its old node removed.
+
+⚖️ Complexity
+Time: O(1) → constant time (just pointer manipulation).
+Space: O(1).
